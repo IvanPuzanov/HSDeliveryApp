@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AAD393E28F84AA300410CFC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD393D28F84AA300410CFC /* Food.swift */; };
 		2AC10D9028F8260400FE76A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */; };
-		2AC10D9228F8260400FE76A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D9128F8260400FE76A9 /* SceneDelegate.swift */; };
 		2AC10D9428F8260400FE76A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D9328F8260400FE76A9 /* ViewController.swift */; };
-		2AC10D9728F8260400FE76A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC10D9528F8260400FE76A9 /* Main.storyboard */; };
 		2AC10D9928F8260700FE76A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC10D9828F8260700FE76A9 /* Assets.xcassets */; };
 		2AC10D9C28F8260700FE76A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */; };
+		2AC10DA428F833E700FE76A9 /* HSFoodCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */; };
+		2AC10DA628F8355000FE76A9 /* HSFoodCategoriesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */; };
+		2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AAD393D28F84AA300410CFC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		2AC10D8C28F8260400FE76A9 /* HSDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AC10D9128F8260400FE76A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2AC10D9328F8260400FE76A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2AC10D9628F8260400FE76A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AC10D9828F8260700FE76A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC10D9B28F8260700FE76A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AC10D9D28F8260700FE76A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCelll.swift; sourceTree = "<group>"; };
+		2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCategoriesHeader.swift; sourceTree = "<group>"; };
+		2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSaleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,57 @@
 		2AC10D8E28F8260400FE76A9 /* HSDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
-				2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */,
-				2AC10D9128F8260400FE76A9 /* SceneDelegate.swift */,
+				2AC10DAB28F835C700FE76A9 /* Model */,
+				2AC10DAA28F835C400FE76A9 /* View */,
+				2AC10DAC28F835CB00FE76A9 /* Presenter */,
+				2AC10DA928F835B700FE76A9 /* Support */,
 				2AC10D9328F8260400FE76A9 /* ViewController.swift */,
-				2AC10D9528F8260400FE76A9 /* Main.storyboard */,
 				2AC10D9828F8260700FE76A9 /* Assets.xcassets */,
 				2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */,
 				2AC10D9D28F8260700FE76A9 /* Info.plist */,
 			);
 			path = HSDeliveryApp;
+			sourceTree = "<group>";
+		};
+		2AC10DA928F835B700FE76A9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2AC10DAA28F835C400FE76A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AC10DAD28F835CF00FE76A9 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2AC10DAB28F835C700FE76A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2AAD393D28F84AA300410CFC /* Food.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AC10DAC28F835CB00FE76A9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2AC10DAD28F835CF00FE76A9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */,
+				2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */,
+				2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +173,6 @@
 			files = (
 				2AC10D9C28F8260700FE76A9 /* LaunchScreen.storyboard in Resources */,
 				2AC10D9928F8260700FE76A9 /* Assets.xcassets in Resources */,
-				2AC10D9728F8260400FE76A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +184,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC10D9428F8260400FE76A9 /* ViewController.swift in Sources */,
+				2AC10DA628F8355000FE76A9 /* HSFoodCategoriesHeader.swift in Sources */,
+				2AAD393E28F84AA300410CFC /* Food.swift in Sources */,
 				2AC10D9028F8260400FE76A9 /* AppDelegate.swift in Sources */,
-				2AC10D9228F8260400FE76A9 /* SceneDelegate.swift in Sources */,
+				2AC10DA428F833E700FE76A9 /* HSFoodCelll.swift in Sources */,
+				2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2AC10D9528F8260400FE76A9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AC10D9628F8260400FE76A9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +332,9 @@
 				INFOPLIST_FILE = HSDeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +360,9 @@
 				INFOPLIST_FILE = HSDeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
