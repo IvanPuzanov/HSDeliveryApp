@@ -8,26 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		2AAD393E28F84AA300410CFC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD393D28F84AA300410CFC /* Food.swift */; };
+		2AAD394228F84B5900410CFC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD394128F84B5900410CFC /* NetworkManager.swift */; };
+		2AAD394428F84D8700410CFC /* HSMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD394328F84D8700410CFC /* HSMenuViewModel.swift */; };
+		2AAD394728F84EAF00410CFC /* HSMenuCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD394628F84EAF00410CFC /* HSMenuCV.swift */; };
+		2AAD394928F84FB300410CFC /* HSFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD394828F84FB300410CFC /* HSFoodViewModel.swift */; };
 		2AC10D9028F8260400FE76A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */; };
-		2AC10D9428F8260400FE76A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D9328F8260400FE76A9 /* ViewController.swift */; };
+		2AC10D9428F8260400FE76A9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10D9328F8260400FE76A9 /* MainVC.swift */; };
 		2AC10D9928F8260700FE76A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC10D9828F8260700FE76A9 /* Assets.xcassets */; };
 		2AC10D9C28F8260700FE76A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */; };
-		2AC10DA428F833E700FE76A9 /* HSFoodCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */; };
+		2AC10DA428F833E700FE76A9 /* HSFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA328F833E700FE76A9 /* HSFoodCell.swift */; };
 		2AC10DA628F8355000FE76A9 /* HSFoodCategoriesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */; };
 		2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */; };
+		EFE365B661BF03D8CB8A11F6 /* Pods_HSDeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C652029A96C29985F13DCAF /* Pods_HSDeliveryApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F551C3094944E5351D5F74A /* Pods-HSDeliveryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSDeliveryApp.debug.xcconfig"; path = "Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2AAD393D28F84AA300410CFC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		2AAD394128F84B5900410CFC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2AAD394328F84D8700410CFC /* HSMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSMenuViewModel.swift; sourceTree = "<group>"; };
+		2AAD394628F84EAF00410CFC /* HSMenuCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSMenuCV.swift; sourceTree = "<group>"; };
+		2AAD394828F84FB300410CFC /* HSFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodViewModel.swift; sourceTree = "<group>"; };
 		2AC10D8C28F8260400FE76A9 /* HSDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AC10D9328F8260400FE76A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AC10D9328F8260400FE76A9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		2AC10D9828F8260700FE76A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AC10D9B28F8260700FE76A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AC10D9D28F8260700FE76A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCelll.swift; sourceTree = "<group>"; };
+		2AC10DA328F833E700FE76A9 /* HSFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCell.swift; sourceTree = "<group>"; };
 		2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCategoriesHeader.swift; sourceTree = "<group>"; };
 		2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSaleCell.swift; sourceTree = "<group>"; };
+		7C652029A96C29985F13DCAF /* Pods_HSDeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSDeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C08CD9D93AA6F6D15B534F6 /* Pods-HSDeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSDeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +47,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE365B661BF03D8CB8A11F6 /* Pods_HSDeliveryApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AAD393F28F84B2D00410CFC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AC10D9328F8260400FE76A9 /* MainVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2AAD394028F84B5000410CFC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2AAD394128F84B5900410CFC /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2AAD394528F84E9A00410CFC /* Custom views */ = {
+			isa = PBXGroup;
+			children = (
+				2AAD394628F84EAF00410CFC /* HSMenuCV.swift */,
+			);
+			path = "Custom views";
+			sourceTree = "<group>";
+		};
+		2AAD394A28F85EAC00410CFC /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extenstions;
+			sourceTree = "<group>";
+		};
 		2AC10D8328F8260400FE76A9 = {
 			isa = PBXGroup;
 			children = (
 				2AC10D8E28F8260400FE76A9 /* HSDeliveryApp */,
 				2AC10D8D28F8260400FE76A9 /* Products */,
+				FBE45CAC168A13134B6FD4F2 /* Pods */,
+				CC91D099D05BB76A27741ACE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,13 +106,12 @@
 		2AC10D8E28F8260400FE76A9 /* HSDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				2AAD394A28F85EAC00410CFC /* Extenstions */,
+				2AAD394028F84B5000410CFC /* Manager */,
 				2AC10DAB28F835C700FE76A9 /* Model */,
 				2AC10DAA28F835C400FE76A9 /* View */,
 				2AC10DAC28F835CB00FE76A9 /* Presenter */,
 				2AC10DA928F835B700FE76A9 /* Support */,
-				2AC10D9328F8260400FE76A9 /* ViewController.swift */,
-				2AC10D9828F8260700FE76A9 /* Assets.xcassets */,
-				2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */,
 				2AC10D9D28F8260700FE76A9 /* Info.plist */,
 			);
 			path = HSDeliveryApp;
@@ -76,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				2AC10D8F28F8260400FE76A9 /* AppDelegate.swift */,
+				2AC10D9828F8260700FE76A9 /* Assets.xcassets */,
+				2AC10D9A28F8260700FE76A9 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -83,6 +130,8 @@
 		2AC10DAA28F835C400FE76A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2AAD394528F84E9A00410CFC /* Custom views */,
+				2AAD393F28F84B2D00410CFC /* Controllers */,
 				2AC10DAD28F835CF00FE76A9 /* Cells */,
 			);
 			path = View;
@@ -99,6 +148,8 @@
 		2AC10DAC28F835CB00FE76A9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				2AAD394328F84D8700410CFC /* HSMenuViewModel.swift */,
+				2AAD394828F84FB300410CFC /* HSFoodViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -107,10 +158,27 @@
 			isa = PBXGroup;
 			children = (
 				2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */,
-				2AC10DA328F833E700FE76A9 /* HSFoodCelll.swift */,
+				2AC10DA328F833E700FE76A9 /* HSFoodCell.swift */,
 				2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CC91D099D05BB76A27741ACE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C652029A96C29985F13DCAF /* Pods_HSDeliveryApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBE45CAC168A13134B6FD4F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F551C3094944E5351D5F74A /* Pods-HSDeliveryApp.debug.xcconfig */,
+				8C08CD9D93AA6F6D15B534F6 /* Pods-HSDeliveryApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AC10DA028F8260700FE76A9 /* Build configuration list for PBXNativeTarget "HSDeliveryApp" */;
 			buildPhases = (
+				2726531DD2B39560763BBEEB /* [CP] Check Pods Manifest.lock */,
 				2AC10D8828F8260400FE76A9 /* Sources */,
 				2AC10D8928F8260400FE76A9 /* Frameworks */,
 				2AC10D8A28F8260400FE76A9 /* Resources */,
+				12F6530E606CC45BE702525C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,16 +248,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12F6530E606CC45BE702525C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2726531DD2B39560763BBEEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HSDeliveryApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AC10D8828F8260400FE76A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC10D9428F8260400FE76A9 /* ViewController.swift in Sources */,
+				2AC10D9428F8260400FE76A9 /* MainVC.swift in Sources */,
 				2AC10DA628F8355000FE76A9 /* HSFoodCategoriesHeader.swift in Sources */,
 				2AAD393E28F84AA300410CFC /* Food.swift in Sources */,
+				2AAD394228F84B5900410CFC /* NetworkManager.swift in Sources */,
+				2AAD394428F84D8700410CFC /* HSMenuViewModel.swift in Sources */,
+				2AAD394928F84FB300410CFC /* HSFoodViewModel.swift in Sources */,
 				2AC10D9028F8260400FE76A9 /* AppDelegate.swift in Sources */,
-				2AC10DA428F833E700FE76A9 /* HSFoodCelll.swift in Sources */,
+				2AC10DA428F833E700FE76A9 /* HSFoodCell.swift in Sources */,
+				2AAD394728F84EAF00410CFC /* HSMenuCV.swift in Sources */,
 				2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +438,7 @@
 		};
 		2AC10DA128F8260700FE76A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F551C3094944E5351D5F74A /* Pods-HSDeliveryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,6 +467,7 @@
 		};
 		2AC10DA228F8260700FE76A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C08CD9D93AA6F6D15B534F6 /* Pods-HSDeliveryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

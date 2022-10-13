@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Food: Codable {
+struct Food: Codable, Hashable {
     var category: String
     var name: String
     var description: String
