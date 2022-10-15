@@ -112,13 +112,13 @@
 			path = "Custom views";
 			sourceTree = "<group>";
 		};
-		2AAD394A28F85EAC00410CFC /* Extenstions */ = {
+		2AAD394A28F85EAC00410CFC /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				2AAD394B28F85F6200410CFC /* UILabel + Ex.swift */,
 				2AAD394D28F8650A00410CFC /* UIButton + Ex.swift */,
 			);
-			path = Extenstions;
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		2AC10D8328F8260400FE76A9 = {
@@ -142,9 +142,9 @@
 		2AC10D8E28F8260400FE76A9 /* HSDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
-				2AF1EBAD28FABF8A00C9D77E /* Contants */,
+				2AF1EBAD28FABF8A00C9D77E /* Constants */,
 				2A5F171A28F97520008D85DE /* Coordinator */,
-				2AAD394A28F85EAC00410CFC /* Extenstions */,
+				2AAD394A28F85EAC00410CFC /* Extentions */,
 				2AAD394028F84B5000410CFC /* Manager */,
 				2AC10DAB28F835C700FE76A9 /* Model */,
 				2AC10DAA28F835C400FE76A9 /* View */,
@@ -205,12 +205,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		2AF1EBAD28FABF8A00C9D77E /* Contants */ = {
+		2AF1EBAD28FABF8A00C9D77E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				2AF1EBAE28FABF9400C9D77E /* URLStrings.swift */,
 			);
-			path = Contants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		CC91D099D05BB76A27741ACE /* Frameworks */ = {
