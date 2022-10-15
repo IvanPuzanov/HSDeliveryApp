@@ -16,7 +16,7 @@ class HSCategoryCell: UICollectionViewCell {
     
     public var categoryString: String! {
         didSet {
-            self.categoryTitleLabel.configureWith(text: categoryString, fontSize: 16, fontWeight: .medium, textColor: .systemOrange)
+            self.categoryTitleLabel.configureWith(text: categoryString.capitalized, fontSize: 16, fontWeight: .medium, textColor: .systemOrange)
         }
     }
     

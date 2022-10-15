@@ -58,7 +58,7 @@ class HSMenuCV: UICollectionView {
     
     private func updateData(with snapshot: NSDiffableDataSourceSnapshot<Section, AnyHashable>) {
         DispatchQueue.main.async {
-            self.menuDiffableDataSource.apply(snapshot, animatingDifferences: false)
+            self.menuDiffableDataSource.apply(snapshot, animatingDifferences: true)
         }
     }
     
@@ -73,42 +73,24 @@ class HSMenuCV: UICollectionView {
     
     private func configureLayout() {
         menuCollectionLayout = UICollectionViewCompositionalLayout(sectionProvider: { section, _ in
-            switch Section.init(rawValue: section) {
-            case .sale:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .absolute(300),
-                                                                    heightDimension: .absolute(123)))
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(300),
-                                                                                 heightDimension: .absolute(123)),
-                                                               subitems: [item])
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 15, trailing: 16)
-                section.orthogonalScrollingBehavior = .paging
-                
-                return section
-            case .food:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                    heightDimension: .estimated(130)))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                               heightDimension: .estimated(130)),
-                                                             subitems: [item])
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                                           heightDimension: .absolute(50)),
-                                                                         elementKind: UICollectionView.elementKindSectionHeader,
-                                                                         alignment: .topLeading)
-                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-                
-                return section
+            switch section {
+            case 0:
+                do {
+                    let sales = try self.menuViewModel.sales.value()
+                    
+                    switch sales.isEmpty {
+                    case true:
+                        return self.configureFoodLayout()
+                    case false:
+                        return self.configureSaleLayout()
+                    }
+                } catch {
+                    return self.configureDefaultSectionLayout()
+                }
+            case 1:
+                return self.configureFoodLayout()
             default:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)), subitems: [item])
-                let section = NSCollectionLayoutSection(group: group)
-                
-                return section
+                return self.configureDefaultSectionLayout()
             }
         })
         
@@ -147,4 +129,48 @@ class HSMenuCV: UICollectionView {
         }
     }
 
+}
+
+extension HSMenuCV {
+    
+    func configureFoodLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .estimated(130)))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                       heightDimension: .estimated(130)),
+                                                     subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                                   heightDimension: .absolute(50)),
+                                                                 elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .topLeading)
+        header.pinToVisibleBounds = true
+        section.boundarySupplementaryItems = [header]
+        
+        return section
+    }
+    
+    func configureSaleLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .absolute(300),
+                                                            heightDimension: .absolute(123)))
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(300),
+                                                                         heightDimension: .absolute(123)),
+                                                       subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 15, trailing: 16)
+        section.orthogonalScrollingBehavior = .paging
+        
+        return section
+    }
+    
+    func configureDefaultSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)), subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
+    }
 }

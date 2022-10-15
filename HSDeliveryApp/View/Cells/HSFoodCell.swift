@@ -16,16 +16,7 @@ class HSFoodCell: UICollectionViewCell {
     
     public var viewModel: HSFoodViewModel! {
         didSet {
-            self.foodTitleLabel.configureWith(text: viewModel.title, fontSize: 18, fontWeight: .semibold)
-            self.foodDescriptionLabel.configureWith(text: viewModel.description, fontSize: 15, fontWeight: .regular, textColor: .secondaryLabel)
-            self.priceButton.configureWith(title: "от \(viewModel.price) ₽", fontSize: 15, fontWeight: .regular, color: .systemOrange)
-            
-            self.viewModel.image.subscribe { image in
-                DispatchQueue.main.async {
-                    self.foodImageView.image = image
-                }
-            } onError: { _ in }.disposed(by: disposeBag)
-
+            setupWith(viewModel: viewModel)
         }
     }
     
@@ -54,6 +45,27 @@ class HSFoodCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Handle methods
+    private func setupWith(viewModel: HSFoodViewModel) {
+        self.foodTitleLabel.configureWith(text: viewModel.title,
+                                          fontSize: 18,
+                                          fontWeight: .semibold)
+        self.foodDescriptionLabel.configureWith(text: viewModel.description,
+                                                fontSize: 15,
+                                                fontWeight: .regular,
+                                                textColor: .secondaryLabel)
+        self.priceButton.configureWith(title: "от \(viewModel.price) ₽",
+                                       fontSize: 15,
+                                       fontWeight: .regular,
+                                       color: .systemOrange)
+        
+        self.viewModel.image.subscribe { image in
+            DispatchQueue.main.async {
+                self.foodImageView.image = image
+            }
+        } onError: { _ in }.disposed(by: disposeBag)
     }
     
     // MARK: - Configuration
