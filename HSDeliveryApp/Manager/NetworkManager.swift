@@ -34,5 +34,4 @@ class NetworkManager: NSObject {
             return Disposables.create()
         }
     }
-    
 }

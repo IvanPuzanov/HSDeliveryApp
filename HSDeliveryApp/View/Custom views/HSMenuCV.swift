@@ -8,14 +8,14 @@
 import UIKit
 import RxSwift
 
+enum Section: Int, CaseIterable {
+    case sale
+    case food
+}
+
 class HSMenuCV: UICollectionView {
     
     // MARK: -
-    enum Section {
-        case sale
-        case menu
-    }
-    
     private let disposeBag = DisposeBag()
     private let menuViewModel = HSMenuViewModel()
     private var menuDiffableDataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
@@ -39,19 +39,26 @@ class HSMenuCV: UICollectionView {
     // MARK: - Handle methods
     private func bind() {
         self.menuViewModel.fetchFood()
-        self.menuViewModel.food.subscribe { viewModels in
-            self.updateData(with: viewModels)
+        
+        self.menuViewModel.sales.subscribe { salesViewModels in
+            self.updateData(with: self.menuViewModel.createSnaphot())
+        } onError: { _ in }.disposed(by: disposeBag)
+        
+        self.menuViewModel.food.subscribe { foodViewModels in
+            self.updateData(with: self.menuViewModel.createSnaphot())
         } onError: { error in }.disposed(by: disposeBag)
+        
+        self.menuViewModel.selectedCategory.subscribe { category in
+            if let indexPath = self.menuDiffableDataSource.indexPath(for: self.menuViewModel.getItemForSelectedCategory()) {
+                self.scrollToItem(at: indexPath, at: .top, animated: true)
+            }
+        } onError: { _ in }.disposed(by: disposeBag)
+
     }
     
-    private func updateData(with viewModels: [HSFoodViewModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
-        
-        snapshot.appendSections([.sale, .menu])
-        snapshot.appendItems(viewModels, toSection: .menu)
-        
+    private func updateData(with snapshot: NSDiffableDataSourceSnapshot<Section, AnyHashable>) {
         DispatchQueue.main.async {
-            self.menuDiffableDataSource.apply(snapshot, animatingDifferences: true)
+            self.menuDiffableDataSource.apply(snapshot, animatingDifferences: false)
         }
     }
     
@@ -59,19 +66,39 @@ class HSMenuCV: UICollectionView {
     private func configure() {
         self.translatesAutoresizingMaskIntoConstraints = false
         
+        self.register(HSSaleCell.self, forCellWithReuseIdentifier: HSSaleCell.cellID)
         self.register(HSFoodCell.self, forCellWithReuseIdentifier: HSFoodCell.cellID)
         self.register(HSFoodCategoriesHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HSFoodCategoriesHeader.cellID)
     }
     
     private func configureLayout() {
         menuCollectionLayout = UICollectionViewCompositionalLayout(sectionProvider: { section, _ in
-            switch section {
-            case 1:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)), subitems: [item])
+            switch Section.init(rawValue: section) {
+            case .sale:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .absolute(300),
+                                                                    heightDimension: .absolute(123)))
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(300),
+                                                                                 heightDimension: .absolute(123)),
+                                                               subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 15, trailing: 16)
+                section.orthogonalScrollingBehavior = .paging
                 
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(90)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+                return section
+            case .food:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                    heightDimension: .estimated(130)))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                               heightDimension: .estimated(130)),
+                                                             subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                                           heightDimension: .absolute(50)),
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .topLeading)
                 header.pinToVisibleBounds = true
                 section.boundarySupplementaryItems = [header]
                 
@@ -89,21 +116,23 @@ class HSMenuCV: UICollectionView {
     }
     
     private func configureDataSource() {
-        menuDiffableDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self, cellProvider: { collectionView, indexPath, itemIdentifier in
+        menuDiffableDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self, cellProvider: { collectionView, indexPath, item in
             
-            switch indexPath.section {
-            case 1:
-                guard let viewModel = itemIdentifier as? HSFoodViewModel else {
+            if let saleViewModel = item as? HSSaleViewModel {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HSSaleCell.cellID, for: indexPath) as? HSSaleCell else {
+                    return UICollectionViewCell()
+                }
+                cell.viewModel = saleViewModel
+                return cell
+            }
+            
+            if let foodViewModel = item as? HSFoodViewModel {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HSFoodCell.cellID, for: indexPath) as? HSFoodCell else {
                     return UICollectionViewCell()
                 }
                 
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HSFoodCell.cellID, for: indexPath) as? HSFoodCell {
-                    cell.viewModel = viewModel
-                    
-                    return cell
-                }
-            default:
-                break
+                cell.viewModel = foodViewModel
+                return cell
             }
             
             return UICollectionViewCell()
@@ -111,6 +140,7 @@ class HSMenuCV: UICollectionView {
         
         menuDiffableDataSource.supplementaryViewProvider = { [unowned self] collectionView, kind, indexPath in
             if let cell = self.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HSFoodCategoriesHeader.cellID, for: indexPath) as? HSFoodCategoriesHeader {
+                cell.viewModel = menuViewModel
                 return cell
             }
             return nil

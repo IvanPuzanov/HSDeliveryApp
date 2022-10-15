@@ -23,15 +23,19 @@ class MainVC: UIViewController {
     // MARK: -
     private func configure() {
         self.view.backgroundColor = .systemBackground
+        
+        self.navigationController?.navigationBar.shadowImage        = UIImage()
+        self.navigationController?.navigationBar.barTintColor       = .systemBackground
+        self.navigationController?.navigationBar.backgroundColor    = .systemBackground
     }
     
     private func configureCollectionView() {
         self.view.addSubview(menuCollectionView)
         
         NSLayoutConstraint.activate([
-            menuCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menuCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             menuCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            menuCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            menuCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             menuCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }

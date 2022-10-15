@@ -6,36 +6,50 @@
 //
 
 import UIKit
+import RxSwift
 
 class HSFoodCell: UICollectionViewCell {
     
     // MARK: - Parameters
     static let cellID = "HSFoodCellID"
+    private let disposeBag = DisposeBag()
     
     public var viewModel: HSFoodViewModel! {
         didSet {
-            self.foodTitleLabel.text        = viewModel.title
-            self.foodDescriptionLabel.text  = viewModel.description
+            self.foodTitleLabel.configureWith(text: viewModel.title, fontSize: 18, fontWeight: .semibold)
+            self.foodDescriptionLabel.configureWith(text: viewModel.description, fontSize: 15, fontWeight: .regular, textColor: .secondaryLabel)
+            self.priceButton.configureWith(title: "от \(viewModel.price) ₽", fontSize: 15, fontWeight: .regular, color: .systemOrange)
+            
+            self.viewModel.image.subscribe { image in
+                DispatchQueue.main.async {
+                    self.foodImageView.image = image
+                }
+            } onError: { _ in }.disposed(by: disposeBag)
+
         }
     }
     
     // MARK: - Views
+    private let mainStackView           = UIStackView()
     private let foodImageView           = UIImageView()
     
     private let titlesStackView         = UIStackView()
     private let foodTitleLabel          = UILabel()
     private let foodDescriptionLabel    = UILabel()
     private let foodPriceLabel          = UILabel()
+    private let priceButton             = UIButton()
     
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configure()
+        configurMainStackView()
         configureFoodImageView()
         configureTitlesStackView()
         configureFoodTitleLabel()
         configureFoodDescriptionLabel()
+        configurePriceButton()
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +61,24 @@ class HSFoodCell: UICollectionViewCell {
         self.backgroundColor = .systemBackground
     }
     
+    private func configurMainStackView() {
+        self.addSubview(mainStackView)
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mainStackView.axis = .horizontal
+        mainStackView.spacing = 15
+        mainStackView.alignment = .center
+        
+        NSLayoutConstraint.activate([
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
+        ])
+    }
+    
     private func configureFoodImageView() {
-        self.addSubview(foodImageView)
+        self.mainStackView.addArrangedSubview(foodImageView)
         foodImageView.translatesAutoresizingMaskIntoConstraints = false
         
         foodImageView.image         = UIImage(systemName: "photo.fill")
@@ -56,33 +86,47 @@ class HSFoodCell: UICollectionViewCell {
         foodImageView.contentMode   = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-            foodImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            foodImageView.widthAnchor.constraint(equalToConstant: 100),
-            foodImageView.heightAnchor.constraint(equalToConstant: 100),
-            foodImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-            foodImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
+            foodImageView.widthAnchor.constraint(equalToConstant: 150),
+            foodImageView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
     private func configureTitlesStackView() {
-        self.addSubview(titlesStackView)
+        self.mainStackView.addArrangedSubview(titlesStackView)
         titlesStackView.translatesAutoresizingMaskIntoConstraints = false
         
         titlesStackView.axis = .vertical
-        titlesStackView.alignment = .top
-        
-        NSLayoutConstraint.activate([
-            titlesStackView.leadingAnchor.constraint(equalTo: foodImageView.trailingAnchor, constant: 15),
-            titlesStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            titlesStackView.centerYAnchor.constraint(equalTo: foodImageView.centerYAnchor)
-        ])
+        titlesStackView.alignment = .trailing
     }
     
     private func configureFoodTitleLabel() {
         self.titlesStackView.addArrangedSubview(foodTitleLabel)
+        
+        foodTitleLabel.numberOfLines = 2
+        
+        NSLayoutConstraint.activate([
+            self.foodTitleLabel.leadingAnchor.constraint(equalTo: titlesStackView.leadingAnchor),
+            self.foodTitleLabel.trailingAnchor.constraint(equalTo: titlesStackView.trailingAnchor)
+        ])
     }
     
     private func configureFoodDescriptionLabel() {
         self.titlesStackView.addArrangedSubview(foodDescriptionLabel)
+        self.titlesStackView.setCustomSpacing(8, after: foodTitleLabel)
+        
+        self.foodDescriptionLabel.numberOfLines = 4
+        
+        NSLayoutConstraint.activate([
+            self.foodDescriptionLabel.leadingAnchor.constraint(equalTo: titlesStackView.leadingAnchor),
+            self.foodDescriptionLabel.trailingAnchor.constraint(equalTo: titlesStackView.trailingAnchor)
+        ])
+    }
+    
+    private func configurePriceButton() {
+        self.titlesStackView.addArrangedSubview(priceButton)
+        self.titlesStackView.setCustomSpacing(15, after: foodDescriptionLabel)
+        
+        self.priceButton.translatesAutoresizingMaskIntoConstraints = false
+        self.priceButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
