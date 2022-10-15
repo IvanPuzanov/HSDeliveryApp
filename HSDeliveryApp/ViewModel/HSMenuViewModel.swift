@@ -11,7 +11,7 @@ import RxRelay
 
 class HSMenuViewModel {
     
-    // MARK: -
+    // MARK: - Parameters
     private let disposeBag = DisposeBag()
     
     public var sales: BehaviorSubject<[HSSaleViewModel]> = .init(value: [])
@@ -21,28 +21,31 @@ class HSMenuViewModel {
     public var selectedCategory: BehaviorRelay<String?> = .init(value: "pizza")
     
     // MARK: -
-    public func fetchFood() {
+    public func fetchData() {
         let networkManager = NetworkManager()
         
         DispatchQueue.global().async {
+            // Fetching sales
+            networkManager.fetchData(ofType: [Sale].self,
+                                     from: URLStrings.sale)
+            .map { $0.map {HSSaleViewModel(sale: $0)} }
+            .subscribe { sales in
+                self.sales.onNext(sales)
+            } onError: { _ in }.disposed(by: self.disposeBag)
+            
+            // Fetching food
             networkManager.fetchData(ofType: [Food].self,
-                                     from: "https://raw.githubusercontent.com/IvanPuzanov/FoodDeliveryAPI/main/HSFoodDelivery.json")
+                                     from: URLStrings.food)
             .map { $0.map {HSFoodViewModel(food: $0)} }
             .subscribe { food in
                 self.food.onNext(food)
                 self.filterByCategories(with: food)
             } onError: { _ in }.disposed(by: self.disposeBag)
-            
-            networkManager.fetchData(ofType: [Sale].self,
-                                     from: "https://raw.githubusercontent.com/IvanPuzanov/FoodDeliveryAPI/main/HSSales.json")
-            .map { $0.map {HSSaleViewModel(sale: $0)} }
-            .subscribe { sales in
-                self.sales.onNext(sales)
-            } onError: { _ in }.disposed(by: self.disposeBag)
-
         }
     }
     
+    /// Creating snapshot for collection view
+    /// - Returns: Created snapshot
     public func createSnaphot() -> NSDiffableDataSourceSnapshot<Section, AnyHashable> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         
@@ -68,6 +71,8 @@ class HSMenuViewModel {
         return snapshot
     }
     
+    /// Filtering fetched food by categories
+    /// - Parameter food: Food views models
     private func filterByCategories(with food: [HSFoodViewModel]) {
         var categories = [String]()
         
@@ -79,6 +84,8 @@ class HSMenuViewModel {
         self.foodCategories.accept(categories)
     }
     
+    /// Getting viewModel item by selected category
+    /// - Returns: FoodViewModel item
     public func getItemForSelectedCategory() -> HSFoodViewModel? {
         do {
             let food = try self.food.value()

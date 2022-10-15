@@ -9,13 +9,14 @@ import UIKit
 
 class ContactsVC: UIViewController {
 
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configure()
     }
     
-    // MARK: -
+    // MARK: - Configuration
     private func configure() {
         self.view.backgroundColor = .systemBackground
     }

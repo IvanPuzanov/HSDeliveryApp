@@ -8,13 +8,16 @@
 import UIKit
 
 class ContactsCoordinator: Coordinator {
+    // MARK: - Parameters
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
+    // MARK: - Initialization
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
+    // MARK: - Methods
     func start() {
         let viewController = ContactsVC()
         viewController.tabBarItem = UITabBarItem(title: "Контакты", image: UIImage(systemName: "person.circle.fill"), tag: 1)

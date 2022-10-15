@@ -15,13 +15,13 @@ enum Section: Int, CaseIterable {
 
 class HSMenuCV: UICollectionView {
     
-    // MARK: -
+    // MARK: - Parameters
     private let disposeBag = DisposeBag()
     private let menuViewModel = HSMenuViewModel()
     private var menuDiffableDataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
     private var menuCollectionLayout: UICollectionViewCompositionalLayout!
     
-    // MARK: -
+    // MARK: - Initialization
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -38,7 +38,7 @@ class HSMenuCV: UICollectionView {
     
     // MARK: - Handle methods
     private func bind() {
-        self.menuViewModel.fetchFood()
+        self.menuViewModel.fetchData()
         
         self.menuViewModel.sales.subscribe { salesViewModels in
             self.updateData(with: self.menuViewModel.createSnaphot())
@@ -56,6 +56,8 @@ class HSMenuCV: UICollectionView {
 
     }
     
+    /// Update data in collection view
+    /// - Parameter snapshot: Snapshot for update collection view state
     private func updateData(with snapshot: NSDiffableDataSourceSnapshot<Section, AnyHashable>) {
         DispatchQueue.main.async {
             self.menuDiffableDataSource.apply(snapshot, animatingDifferences: true)

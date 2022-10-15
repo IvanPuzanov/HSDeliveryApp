@@ -16,17 +16,15 @@ class HSFoodCategoriesHeader: UICollectionReusableView {
         case main
     }
     
-    private let disposeBag = DisposeBag()
-    static let cellID = "HSFoodCategoryHeader"
+    private let disposeBag  = DisposeBag()
+    static let cellID       = "HSFoodCategoryHeader"
     
-    public var viewModel: HSMenuViewModel! {
-        didSet {
-            bind()
-        }
-    }
-    private let collectionView  = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    public var viewModel: HSMenuViewModel! { didSet { bind() } }
     private var dataSource: UICollectionViewDiffableDataSource<Section, String>!
     private var layout: UICollectionViewCompositionalLayout!
+    
+    // MARK: - Views
+    private let collectionView  = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     // MARK: -
     override init(frame: CGRect) {
@@ -42,7 +40,7 @@ class HSFoodCategoriesHeader: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: -
+    // MARK: - Handle methods
     private func bind() {
         viewModel.foodCategories.subscribe { categories in
             self.updateData(with: categories)
@@ -71,7 +69,7 @@ class HSFoodCategoriesHeader: UICollectionReusableView {
         }
     }
     
-    // MARK: -
+    // MARK: - Configuration
     private func configure() {
         self.backgroundColor = .systemBackground
         

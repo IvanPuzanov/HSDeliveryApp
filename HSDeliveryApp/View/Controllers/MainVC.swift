@@ -9,10 +9,10 @@ import UIKit
 
 class MainVC: UIViewController {
 
-    // MARK: -
+    // MARK: - Views
     private let menuCollectionView = HSMenuCV(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
-    // MARK: -
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +20,7 @@ class MainVC: UIViewController {
         configureCollectionView()
     }
     
-    // MARK: -
+    // MARK: - Configuration
     private func configure() {
         self.view.backgroundColor = .systemBackground
         

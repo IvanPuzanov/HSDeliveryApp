@@ -27,7 +27,7 @@ class HSCategoryCell: UICollectionViewCell {
     // MARK: - Views
     private let categoryTitleLabel = UILabel()
     
-    // MARK: -
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,7 +39,7 @@ class HSCategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: -
+    // MARK: - Handle methods
     private func didSelectionChanged() {
         switch isSelected {
         case true:
@@ -55,7 +55,7 @@ class HSCategoryCell: UICollectionViewCell {
         }
     }
     
-    // MARK: -
+    // MARK: - Configuration
     private func configure() {
         self.layer.borderWidth  = 1
         self.layer.borderColor  = UIColor.systemOrange.withAlphaComponent(0.4).cgColor

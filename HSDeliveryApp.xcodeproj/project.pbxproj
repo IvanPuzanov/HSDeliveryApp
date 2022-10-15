@@ -29,6 +29,7 @@
 		2AC10DA428F833E700FE76A9 /* HSFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA328F833E700FE76A9 /* HSFoodCell.swift */; };
 		2AC10DA628F8355000FE76A9 /* HSFoodCategoriesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */; };
 		2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */; };
+		2AF1EBAF28FABF9400C9D77E /* URLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1EBAE28FABF9400C9D77E /* URLStrings.swift */; };
 		EFE365B661BF03D8CB8A11F6 /* Pods_HSDeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C652029A96C29985F13DCAF /* Pods_HSDeliveryApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		2AC10DA328F833E700FE76A9 /* HSFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCell.swift; sourceTree = "<group>"; };
 		2AC10DA528F8355000FE76A9 /* HSFoodCategoriesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFoodCategoriesHeader.swift; sourceTree = "<group>"; };
 		2AC10DA728F835B300FE76A9 /* HSSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSaleCell.swift; sourceTree = "<group>"; };
+		2AF1EBAE28FABF9400C9D77E /* URLStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStrings.swift; sourceTree = "<group>"; };
 		7C652029A96C29985F13DCAF /* Pods_HSDeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSDeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C08CD9D93AA6F6D15B534F6 /* Pods-HSDeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSDeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-HSDeliveryApp/Pods-HSDeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		2AC10D8E28F8260400FE76A9 /* HSDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				2AF1EBAD28FABF8A00C9D77E /* Contants */,
 				2A5F171A28F97520008D85DE /* Coordinator */,
 				2AAD394A28F85EAC00410CFC /* Extenstions */,
 				2AAD394028F84B5000410CFC /* Manager */,
@@ -200,6 +203,14 @@
 				2A5F172528F9856E008D85DE /* HSCategoryCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		2AF1EBAD28FABF8A00C9D77E /* Contants */ = {
+			isa = PBXGroup;
+			children = (
+				2AF1EBAE28FABF9400C9D77E /* URLStrings.swift */,
+			);
+			path = Contants;
 			sourceTree = "<group>";
 		};
 		CC91D099D05BB76A27741ACE /* Frameworks */ = {
@@ -350,6 +361,7 @@
 				2AAD394C28F85F6200410CFC /* UILabel + Ex.swift in Sources */,
 				2A5F172228F976C0008D85DE /* ContactsCoordinator.swift in Sources */,
 				2AC10DA428F833E700FE76A9 /* HSFoodCell.swift in Sources */,
+				2AF1EBAF28FABF9400C9D77E /* URLStrings.swift in Sources */,
 				2A5F172028F97599008D85DE /* TabBarVC.swift in Sources */,
 				2AAD394728F84EAF00410CFC /* HSMenuCV.swift in Sources */,
 				2AC10DA828F835B300FE76A9 /* HSSaleCell.swift in Sources */,
