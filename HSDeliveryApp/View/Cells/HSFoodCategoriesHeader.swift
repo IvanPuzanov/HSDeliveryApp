@@ -53,7 +53,7 @@ class HSFoodCategoriesHeader: UICollectionReusableView {
         viewModel.selectedCategory.subscribe { category in
             guard let category = category else { return }
             let indexPath = self.dataSource.indexPath(for: category)
-            self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+            self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
         } onError: { _ in }.disposed(by: disposeBag)
 
     }

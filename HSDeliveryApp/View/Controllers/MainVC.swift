@@ -34,7 +34,7 @@ class MainVC: UIViewController {
         
         NSLayoutConstraint.activate([
             menuCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            menuCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            menuCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             menuCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             menuCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])

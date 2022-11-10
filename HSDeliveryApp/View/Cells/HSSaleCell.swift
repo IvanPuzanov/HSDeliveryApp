@@ -19,6 +19,7 @@ class HSSaleCell: UICollectionViewCell {
             viewModel.image.subscribe { image in
                 DispatchQueue.main.async {
                     self.imageView.image = image
+                    self.imageView.contentMode = .scaleAspectFill
                 }
             } onError: { _ in }.disposed(by: disposeBag)
         }
@@ -52,7 +53,7 @@ class HSSaleCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.tintColor     = .quaternarySystemFill
-        imageView.contentMode   = .scaleAspectFill
+        imageView.contentMode   = .scaleAspectFit
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
